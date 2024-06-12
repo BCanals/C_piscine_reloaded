@@ -1,0 +1,22 @@
+NAME = libft
+
+MY_SOURCES = srcs/*.c 
+
+MY_OBJECTS = $(MY_SOURCES:.c=.o)
+
+CFLAGS += -Wall -Wextra -Werror
+
+CUR_DIR = $(shell pwd)
+
+all: $(NAME)
+
+$(NAME): $(MY_OBJECTS)
+	cc $(MY_OBJECTS) -o $(NAME)
+
+clean reclean:
+	rm -f $(MY_OBJECTS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all reclean
