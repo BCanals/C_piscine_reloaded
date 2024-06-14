@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bizcru <username@student.your42network>    +#+  +:+       +#+        */
+/*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 14:59:08 by bizcru            #+#    #+#             */
-/*   Updated: 2024/06/14 15:52:16 by bcanals-         ###   ########.fr       */
+/*   Created: 2024/06/14 13:06:25 by bcanals-          #+#    #+#             */
+/*   Updated: 2024/06/14 15:18:13 by bcanals-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	int	rtrn;
+	int	i;
 
-	if (nb <= 0)
-		return (0);
-	else if (nb == 1)
-		return (1);
-	rtrn = 0;
-	while ((rtrn * rtrn) <= nb)
+	i = 0;
+	while (i < length)
 	{
-		if ((rtrn * rtrn) == nb)
-			return (rtrn);
-		rtrn++;
+		(*f)(tab[i]);
+		i++;
 	}
-	return (0);
 }
 /*
+#include <stdio.h>
+
+void ft_print(int c)
+{
+	printf("%i\n", c);
+}
+
 int main ()
 {
+	int tab[2];
+	int lenght = 2;
+
+	tab[0] = 4;
+	tab[1] = 2;
 	
+	ft_foreach(tab, lenght, &ft_print);
 }*/

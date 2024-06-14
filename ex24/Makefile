@@ -1,22 +1,24 @@
-NAME = libft
+CFLAGS = -Wall -Wextra -Werror
 
-MY_SOURCES = srcs/*.c 
+SRCS = srcs/ft_putchar.c srcs/ft_putstr.c srcs/ft_strcmp.c srcs/ft_strlen.c srcs/ft_swap.c
 
-MY_OBJECTS = $(MY_SOURCES:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
-CFLAGS += -Wall -Wextra -Werror
+INCLUDES = includes/
 
-CUR_DIR = $(shell pwd)
+libft.a: $(OBJS)
+	ar rc $@ $(OBJS)
+	ranlib $@ 
 
-all: $(NAME)
+%.o: %.c
+	gcc $(CFLAGS) -c $< -o $@
 
-$(NAME): $(MY_OBJECTS)
-	cc $(MY_OBJECTS) -o $(NAME)
+all: libft.a
 
-clean reclean:
-	rm -f $(MY_OBJECTS)
+clean:
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f libft.a
 
-re: fclean all reclean
+re: fclean all

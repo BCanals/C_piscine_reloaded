@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 21:06:37 by bizcru            #+#    #+#             */
-/*   Updated: 2024/06/12 21:15:48 by bizcru           ###   ########.fr       */
+/*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
+/*   Updated: 2024/06/14 16:39:49 by bcanals-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/include.h"
+#include <stdio.h>
 
-int main()
+int main(int argc, int **argv)
 {
-	ft_putchar('4');
-	ft_putchar('2');
+	if (argc == 1)
+		fprintf(stderr, "File name missing.\n");
+	else if (argc > 2)
+		fprintf(stderr, "Too many arguments.\n");
 }
