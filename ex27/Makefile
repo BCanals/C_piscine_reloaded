@@ -4,15 +4,13 @@ CFLAGS = -Wall -Wextra -Werror
 
 SOURCE = ft_display_file.c
 
-OBJECT = $(SOURCE:.c=.o)
+OBJECT = ft_display_file.o
 
 all: $(NAME)
 
-%.o: %.c
-	gcc $(CFLAGS) -c $< -o $@
-
 $(NAME): $(OBJECT)
-	gcc $(CFLAGS) -o $(NAME) $(OBJECT)
+	gcc $(CFLAGS) -c $(SOURCE)
+	gcc -o $(NAME) $(OBJECT)
 
 clean:
 	rm -f $(OBJECT)
